@@ -28,7 +28,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 		.and()
 			.authorizeRequests()
-			.antMatchers("/login", "/accueil", "/form_utilisateur", "/enrUtilisateur").permitAll()
+			.antMatchers("/login", "/accueil", "/form_utilisateur", "/enrUtilisateur", "/contact").permitAll()
 			.antMatchers("/accueilAdmin/**").hasRole("ADMIN")
 			.anyRequest().authenticated()
 			.and()

@@ -54,6 +54,12 @@ public class MainController
         return "redirect:/accueil";
     }
     
+    @GetMapping("/contact")
+    public String contact()
+    {
+
+        return "contact";
+    }
     
 
 

@@ -41,6 +41,10 @@ public class MainController
     public String saveUtilisateur(@ModelAttribute("utilisateur") Utilisateur u)
     {
     	
+<<<<<<< HEAD
+=======
+    	log.info("utilisateur" + u);
+>>>>>>> branch 'master' of https://github.com/Osefx/SpringBoot_groupe_aeroport.git
 
     	Role r = new Role("CLIENT");
     	u.setRole(r);

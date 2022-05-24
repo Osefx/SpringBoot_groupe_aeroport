@@ -36,13 +36,13 @@
 			</div>
 		</thead>
 		<tbody>
-			<c:forEach var="vol" items="${ listeVol }">
+			<th:each var="vol : ${ listeVol }">
 				<tr>
-					<th scope="row">${ vol.getId() }</th>
-					<td>${ vol.getDateDepart() }</td>
-					<td>${ vol.getDateArrive() }</td>
-					<td>${ vol.getHeureDepart() }</td>
-					<td>${ vol.getHeureArrivee() }</td>
+					<th scope="row" th:text="${ vol.getId()}"> </th>
+					<td th:text="${ vol.getDateDepart() }"></td>
+					<td th:text="${ vol.getDateArrive() }"></td>
+					<td th:text="${ vol.getHeureDepart() }"></td>
+					<td th:text="${ vol.getHeureArrivee() }"></td>
 					<td>
 						<a href="form_Reservation_Passager"><button type="button"
 							class="btn btn-danger">Reserver</button></a> 

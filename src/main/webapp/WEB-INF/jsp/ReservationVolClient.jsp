@@ -44,7 +44,7 @@
 					<td>${ vol.getHeureDepart() }</td>
 					<td>${ vol.getHeureArrivee() }</td>
 					<td>
-						<a href="volReservationClient"><button type="button"
+						<a href="h"><button type="button"
 							class="btn btn-danger">Reserver</button></a> 
                         
 					</td>

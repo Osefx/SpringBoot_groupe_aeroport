@@ -29,6 +29,37 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 		.and()
 			.authorizeRequests()
 			.antMatchers("/login", "/accueil", "/form_utilisateur", "/enrUtilisateur").permitAll()
+<<<<<<< HEAD
+			//.antMatchers("/enrActeur", "/enrFilm").permitAll()
+			.antMatchers("/accueilAdmin/**", "/EnrNewVol", "/form_newVol").hasRole("ADMIN")
+			.anyRequest().authenticated()
+			.and()
+			.formLogin()
+			.loginPage("/accueil")
+			.failureUrl("/login?error=true")
+			.defaultSuccessUrl("/accueil");
+		
+	}
+	@Bean
+	public DaoAuthenticationProvider authProvider() {
+	    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+	    authProvider.setUserDetailsService(userDeService);
+	    authProvider.setPasswordEncoder(passwordEncoder());
+	    return authProvider;
+	}
+	
+	@Override //configure ctrl+espace pour changer la config par défaut, elle gère le log
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception 
+	{
+		
+		auth.authenticationProvider(authProvider());
+		//auth.userDetailsService(userDeService).passwordEncoder(passwordEncoder());
+		
+		
+		auth.inMemoryAuthentication()
+		
+		.withUser("Admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
+=======
 			.antMatchers("/accueilAdmin/**", "/enrNewAdmin", "/form_newVol").hasRole("ADMIN")
 			.anyRequest().authenticated()
 			.and()
@@ -57,6 +88,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 		auth.inMemoryAuthentication()
 		
 		.withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
+>>>>>>> branch 'master' of https://github.com/Osefx/SpringBoot_groupe_aeroport.git
 		
 		
 	}

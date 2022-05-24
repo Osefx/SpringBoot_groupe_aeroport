@@ -22,52 +22,54 @@
 
 <body style="background-image: url(https://n3pix.fr/wp-content/uploads/2022/05/BackgroundVoyage.png); background-repeat: no-repeat; background-size: 100%;">
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-<form action="enrNewVol" method="post" modelAttribute="volF">
+	
+
+<form method="post" action="#" th:action="@{/enrNewVol}" th:object="${vol}">
 		<h2 style="text-align:center"> <b>Enregistrer un Nouveau vol </b></h2>
 	
 		<div class="mb-3">
-			<label for="Depart" class="form-label">Aeroport de depart</label> <input
-				type="text" class="form-control" id="Depart"
-				name="Depart">
+			<label for="aeroportDepart" class="form-label">Aeroport de depart</label> <input
+				type="text" class="form-control" id="aeroportDepart"
+				name="aeroportDepart">
 		</div>
 	
 		<div class="mb-3">
-			<label for="destination" class="form-label">Aeroport de destination</label> <input
-				type="text" class="form-control" id="destination"
-				name="destination">
+			<label for="aeroportArrivee" class="form-label">Aeroport arrivee</label> <input
+				type="text" class="form-control" id="aeroportArrivee"
+				name="aeroportArrivee">
 		</div>
 
 	
 		<div class="mb-3">
-			<label for="dateDepart" class="form-label">Date de depart</label> 				
-				<div class="input-group mb-4" id="dateDepart" name="dateDepart">
+			<label for="depart" class="form-label">Date de depart</label> 				
+				<div class="input-group mb-4" id="depart" name="depart">
                 <i class="bi bi-calendar-date input-group-text"></i>
-                <input type="text" class="datepicker_input form-control" placeholder="Date de depart de vol"
+                <input type="date" class="datepicker_input form-control" placeholder="Date de depart de vol"
                     required aria-label="Date input 3 (using aria-label)">
             </div>
 				
 		</div>
-		<div class="mb-3">
-			<label for="heureDepart" class="form-label">Heure de depart</label> <input
-				type="time" class="form-control" id="heureDepart"
-				name="heureDepart">        
-		</div>
+<!-- 		<div class="mb-3"> -->
+<!-- 			<label for="heureDepart" class="form-label">Heure de depart</label> <input -->
+<!-- 				type="time" class="form-control" id="heureDepart" -->
+<!-- 				name="heureDepart">         -->
+<!-- 		</div> -->
 
 		<div class="mb-3">
-			<label for="dateArrivee" class="form-label">Date d'arrivee </label> 				
-				  <div class="input-group mb-4" id="dateArrivee" name="dateArrivee">
+			<label for="arrivee" class="form-label">Date d'arrivee </label> 				
+				  <div class="input-group mb-4" id="arrivee" name="arrivee">
                 <i class="bi bi-calendar-date input-group-text"></i>
-                <input type="text" class="datepicker_input form-control" placeholder="Date d'arrivee du vol"
+                <input type="date" class="datepicker_input form-control" placeholder="Date d'arrivee du vol"
                     required aria-label="Date input 3 (using aria-label)">
 					
             </div>
 		</div>
 		     
 		
-		<div class="mb-3">
-			<label for="heureArrivee" class="form-label">Heure de d'arrivee</label> <input
-				type="time" class="form-control" id="heureArrivee" name="heureArrivee">
-		</div>
+<!-- 		<div class="mb-3"> -->
+<!-- 			<label for="heureArrivee" class="form-label">Heure de d'arrivee</label> <input -->
+<!-- 				type="time" class="form-control" id="heureArrivee" name="heureArrivee"> -->
+<!-- 		</div> -->
 
 		<button type="submit" class="btn btn-primary">Enregistrer</button>
 		<button type="reset" class="btn btn-primary">Annuler</button>
@@ -79,9 +81,6 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
 
-    <!-- Vanilla Datepicker JS -->
-    <script src='https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js'></script>
-    <script src="/ORM/TP1_ORM/src/main/webapp/WEB-INF/js/DatePicker.js"></script>
-	<script src="js/DatePicker.js"></script>
+
 </body>
 </html>

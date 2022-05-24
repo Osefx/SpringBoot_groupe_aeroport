@@ -31,6 +31,7 @@ public class Vol {
     private int idVol;
     private @NonNull Date depart;
     private @NonNull Date arrivee;
+    
 
     @OneToMany(mappedBy = "vol", targetEntity = Reservation.class, cascade = CascadeType.ALL)
     private List<Reservation> listeReservation;

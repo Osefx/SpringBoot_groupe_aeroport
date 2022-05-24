@@ -1,7 +1,9 @@
 package com.inti.SpringBoot_Groupe_Aeroport.controller;
 
+import com.inti.SpringBoot_Groupe_Aeroport.model.Passager;
 import com.inti.SpringBoot_Groupe_Aeroport.model.Role;
 import com.inti.SpringBoot_Groupe_Aeroport.model.Utilisateur;
+import com.inti.SpringBoot_Groupe_Aeroport.service.PassagerService;
 import com.inti.SpringBoot_Groupe_Aeroport.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MainController 
 {
+	
+	@Autowired
+	PassagerService passagerService;
     @Autowired
     UserService userService;
 
@@ -57,8 +62,24 @@ public class MainController
         return "redirect:/accueil";
     }
     
-    
+	@GetMapping("/form_Reservation_Passager")
+    public String ReservationVolPassager()
+    {
+        
+        return "form_Reservation_Passager";
 
+    }
+
+	
+	@PostMapping("/enrPassager")
+	public String saveNewAdmin(@ModelAttribute("passager") Passager p)
+	{
+		
+        passagerService.save(p);
+
+        return "redirect:/accueil";
+	}
+	
 
 
 }

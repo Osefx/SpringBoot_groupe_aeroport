@@ -43,12 +43,12 @@ public class AdminController {
 
 	@GetMapping("/AfficherVols")
 	public String afficherVols(Model m) {
-		// m.addAttribute("listeVol", volService.getVols());
+		m.addAttribute("listeVol", volService.getVols());
 		return "AfficherVols";
 	}
 	
 	@GetMapping("/form_newVol")
-    public String EnregistrementNewVol()
+    public String EnregistrementNewVol(Vol vol)
     {
         
         return "form_newVol";
@@ -56,10 +56,10 @@ public class AdminController {
     }
 
 	@PostMapping("/enrNewVol")
-	public String enrNewVol(@ModelAttribute("volF") Vol v) 
+	public String enrNewVol(Vol vol) 
 	{
 		
-        volService.save(v);
+        volService.save(vol);
 		return "redirect:/accueilAdmin";
 	}
 

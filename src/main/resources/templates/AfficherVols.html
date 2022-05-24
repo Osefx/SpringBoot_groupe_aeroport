@@ -37,11 +37,11 @@
 		<tbody>
 			<c:forEach var="vol" items="${ listeVol }">
 				<tr>
-					<th scope="row">${ vol.getId() }</th>
-					<td>${ vol.getDateDepart() }</td>
-					<td>${ vol.getDateArrive() }</td>
-					<td>${ vol.getHeureDepart() }</td>
-					<td>${ vol.getHeureArrivee() }</td>
+					<th scope="row">${ vol.getIdVol() }</th>
+					<td>${ vol.getDepart() }</td>
+					<td>${ vol.getArrivee() }</td>
+<!-- 					<td>${ vol.getHeureDepart() }</td> -->
+<!-- 					<td>${ vol.getHeureArrivee() }</td> -->
 					<td>
 						<a href=""><button type="button"
 							class="btn btn-danger">Supprimer</button></a> 

@@ -16,8 +16,6 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor
 public class Aeroport {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idAeroport;
     @Column(unique = true)
     private @NonNull String nomAeroport;
     private @NonNull String villeAeroport;

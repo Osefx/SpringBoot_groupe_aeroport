@@ -11,7 +11,7 @@
 
     <body>
       <br>
-      <form action="enrUtilisateur" method="POST" modelAttribute="utilisateur">
+      <form action="#" th:action="@{/enrUtilisateur}" method="POST" modelAttribute="utilisateur">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         <br>
         <h2>Nouveau Client</h2>

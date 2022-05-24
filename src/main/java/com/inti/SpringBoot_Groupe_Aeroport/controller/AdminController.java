@@ -38,7 +38,7 @@ public class AdminController {
 
 		userService.save(u);
 
-		return "redirect:/accueil";
+		return "redirect:/accueilAdmin";
 	}
 
 	@GetMapping("/AfficherVols")

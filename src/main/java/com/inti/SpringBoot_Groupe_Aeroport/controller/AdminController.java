@@ -56,7 +56,7 @@ public class AdminController {
     }
 
 	@PostMapping("/enrNewVol")
-	public String EnrNewVol(@ModelAttribute("volF") Vol v) 
+	public String enrNewVol(@ModelAttribute("volF") Vol v) 
 	{
 		
         volService.save(v);

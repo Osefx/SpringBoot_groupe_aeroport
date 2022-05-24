@@ -68,7 +68,6 @@ public class MainController
     }
 	
 
-	
 	@PostMapping("/enrPassager")
 	public String saveNewAdmin(@ModelAttribute("passager") Passager p)
 	{
@@ -78,6 +77,12 @@ public class MainController
         return "redirect:/accueil";
 	}
 	
+	@GetMapping("/pageVolsClient")
+    public String pageVolsClient()
+    {
+        
+        return "Page_Vols_Client";
 
+    }
 
 }

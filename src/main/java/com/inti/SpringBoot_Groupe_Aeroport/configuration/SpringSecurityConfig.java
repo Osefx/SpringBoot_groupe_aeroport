@@ -28,8 +28,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 		.and()
 			.authorizeRequests()
+
 			.antMatchers("/login", "/accueil", "/form_utilisateur", "/enrUtilisateur", "/contact").permitAll()
 			.antMatchers("/accueilAdmin/**").hasRole("ADMIN")
+			.antMatchers("/login", "/accueil", "/form_utilisateur", "/enrUtilisateur").permitAll()
+			.antMatchers("/form_Reservation_Passager","/enrPassager").hasRole("CLIENT")
+			.antMatchers("/accueilAdmin/**", "/enrNewAdmin", "/form_newVol").hasRole("ADMIN")
 			.anyRequest().authenticated()
 			.and()
 			.formLogin()
@@ -56,9 +60,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 		
 		auth.inMemoryAuthentication()
 		
-		.withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
 
-		
+		.withUser("user").password(passwordEncoder().encode("user")).roles("USER")
+		.and()
+		.withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
 		
 	}
 	@Bean

@@ -1,12 +1,15 @@
 package com.inti.SpringBoot_Groupe_Aeroport.controller;
 
+import com.inti.SpringBoot_Groupe_Aeroport.model.Passager;
 import com.inti.SpringBoot_Groupe_Aeroport.model.Role;
 import com.inti.SpringBoot_Groupe_Aeroport.model.Utilisateur;
+import com.inti.SpringBoot_Groupe_Aeroport.service.PassagerService;
 import com.inti.SpringBoot_Groupe_Aeroport.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +20,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MainController 
 {
+	
+	@Autowired
+	PassagerService passagerService;
     @Autowired
     UserService userService;
 
@@ -53,7 +59,7 @@ public class MainController
 
         return "redirect:/accueil";
     }
-    
+
     @GetMapping("/contact")
     public String contact()
     {
@@ -62,6 +68,38 @@ public class MainController
     }
     
 
+	@GetMapping("/form_Reservation_Passager")
+    public String ReservationVolPassager()
+    {
+        
+        return "form_Reservation_Passager";
 
+
+    }
+	
+
+	@PostMapping("/enrPassager")
+	public String saveNewAdmin(@ModelAttribute("passager") Passager p)
+	{
+		
+        passagerService.save(p);
+
+        return "redirect:/accueil";
+	}
+	
+	@GetMapping("/pageVolsClient")
+    public String pageVolsClient()
+    {
+        
+        return "Page_Vols_Client";
+
+    }
+	
+
+	@GetMapping("/AfficherVolsRecherche")
+	public String AfficherVolsRecherche(Model m) {
+		// m.addAttribute("listeVol", volService.getVols());
+		return "Page_Vols_Client";
+	}
 
 }

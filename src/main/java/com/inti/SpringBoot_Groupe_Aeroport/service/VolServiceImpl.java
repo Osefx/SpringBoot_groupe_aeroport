@@ -4,6 +4,9 @@ import com.inti.SpringBoot_Groupe_Aeroport.repository.VolRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 import com.inti.SpringBoot_Groupe_Aeroport.model.Vol;
 
 
@@ -17,6 +20,11 @@ public class VolServiceImpl implements VolService {
 
         volRepository.save(v);
     }
+
+	@Override
+	public List<Vol> getVols() {
+		return volRepository.findAll();
+	}
 
 
 

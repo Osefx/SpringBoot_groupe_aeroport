@@ -29,7 +29,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 		.and()
 			.authorizeRequests()
 			.antMatchers("/login", "/accueil", "/form_utilisateur", "/enrUtilisateur").permitAll()
-			//.antMatchers("/enrActeur", "/enrFilm").permitAll()
 			.antMatchers("/accueilAdmin/**", "/enrNewAdmin", "/form_newVol").hasRole("ADMIN")
 			.anyRequest().authenticated()
 			.and()
@@ -57,7 +56,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 		
 		auth.inMemoryAuthentication()
 		
-		.withUser("Admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
+		.withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
 		
 		
 	}

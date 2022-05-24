@@ -41,6 +41,7 @@ public class MainController
     public String saveUtilisateur(@ModelAttribute("utilisateur") Utilisateur u)
     {
     	
+    	log.info("utilisateur" + u);
 
     	Role r = new Role("CLIENT");
     	u.setRole(r);
